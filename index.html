@@ -1,52 +1,57 @@
-
-             <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="sw">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Zimrah Arts Network | Injili Kupitia Sanaa</title>
+    <link rel="manifest" href="data:application/manifest+json,{%22name%22:%22Zimrah%20Arts%20Network%22,%22short_name%22:%22ZimrahArts%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22theme_color%22:%22#1e3a8a%22,%22background_color%22:%22#ffffff%22}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
         body { font-family: system-ui, sans-serif; background:#f5f5f5; }
         .app-container { max-width:1200px; margin:0 auto; background:white; min-height:100vh; }
         .header { background:linear-gradient(135deg,#1e3a8a,#2563eb); color:white; padding:20px; text-align:center; }
-        .logo { display:flex; align-items:center; justify-content:center; gap:15px; }
+        .logo { display:flex; align-items:center; justify-content:center; gap:15px; flex-wrap:wrap; }
         .logo-icon { width:50px; height:50px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; color:#1e3a8a; }
         .location { background:rgba(255,255,255,0.2); display:inline-block; padding:6px 16px; border-radius:40px; margin-top:8px; font-size:14px; }
-        .nav-tabs { display:flex; overflow-x:auto; background:#e2e8f0; padding:10px 5px 0; gap:8px; }
+        .nav-tabs { display:flex; overflow-x:auto; background:#e2e8f0; padding:10px 5px 0; gap:8px; scrollbar-width:none; }
+        .nav-tabs::-webkit-scrollbar { display:none; }
         .tab-btn { flex:0 0 auto; min-width:85px; background:linear-gradient(145deg,#1e3a8a,#1d4ed8); color:white; border:none; border-radius:40px; padding:12px 6px; font-size:13px; display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; }
+        .tab-btn:active { transform:translateY(2px); }
         .tab-btn.active { background:#d69e2e; }
         .main-content { padding:16px; }
-        .tab-content { display:none; }
+        .tab-content { display:none; animation:fade 0.2s; }
         .tab-content.active { display:block; }
-        .card { background:white; border-radius:24px; padding:18px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
-        .video-grid, .product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:15px; }
-        .video-item, .product-card { background:#f8fafc; border-radius:20px; border:1px solid #e2e8f0; overflow:hidden; }
+        @keyframes fade { from{opacity:0;} to{opacity:1;} }
+        .card { background:white; border-radius:24px; padding:18px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.05); border:1px solid #eef2f6; }
+        .card-title { color:#1e3a8a; margin-bottom:12px; font-size:1.2rem; display:flex; align-items:center; gap:10px; }
+        .video-grid, .product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:15px; margin-top:10px; }
+        .video-item { background:#f8fafc; border-radius:20px; border:1px solid #e2e8f0; cursor:pointer; overflow:hidden; }
         .video-thumb { height:160px; background:linear-gradient(135deg,#1e3a8a,#764ba2); display:flex; align-items:center; justify-content:center; }
-        .video-play { width:55px; height:55px; background:rgba(255,255,255,0.95); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#1e3a8a; }
-        .video-info, .product-card { padding:12px; text-align:center; }
-        .btn { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:12px; background:#1e3a8a; color:white; border:none; border-radius:40px; cursor:pointer; margin-top:8px; }
+        .video-play { width:55px; height:55px; background:rgba(255,255,255,0.95); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#1e3a8a; font-size:22px; }
+        .video-info { padding:12px; text-align:center; }
+        .product-card { background:#f8fafc; border-radius:20px; border:1px solid #e2e8f0; padding:15px; text-align:center; cursor:pointer; }
+        .btn { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:12px; background:#1e3a8a; color:white; border:none; border-radius:40px; font-weight:600; cursor:pointer; margin-top:8px; }
         .btn-gold { background:#d69e2e; }
         .btn-success { background:#38a169; }
         .btn-danger { background:#e53e3e; }
         .admin-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:10000; align-items:center; justify-content:center; padding:20px; }
         .admin-box { background:white; border-radius:32px; padding:28px; width:100%; max-width:340px; }
-        .admin-input-field { width:100%; padding:14px; margin:10px 0; border:2px solid #e2e8f0; border-radius:40px; }
+        .admin-input-field { width:100%; padding:14px; margin:10px 0; border:2px solid #e2e8f0; border-radius:40px; font-size:16px; }
         .form-control { width:100%; padding:12px; border:2px solid #e2e8f0; border-radius:20px; margin-bottom:12px; }
-        .stats-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+        .stats-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:20px; }
         .stat-card { background:#f1f5f9; border-radius:20px; padding:14px; text-align:center; }
         .quick-actions { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:15px; }
         .quick-action-btn { background:#f8fafc; border-radius:20px; padding:15px; text-align:center; border:1px solid #e2e8f0; cursor:pointer; }
-        .admin-list-item { background:#f8fafc; border-radius:16px; padding:12px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
-        .admin-list-actions { display:flex; gap:8px; }
-        .alert { padding:12px; border-radius:40px; margin-bottom:12px; }
+        .admin-list-item { background:white; border-radius:16px; padding:12px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; border:1px solid #ddd; }
+        .alert { padding:12px; border-radius:40px; margin-bottom:12px; background:#d4edda; color:#155724; display:flex; gap:8px; align-items:center; }
         .hidden { display:none !important; }
         .footer { background:linear-gradient(135deg,#1e3a8a,#2563eb); color:white; text-align:center; padding:20px; margin-top:20px; }
-        .social-links { display:flex; justify-content:center; gap:18px; margin:15px 0; }
+        .social-links { display:flex; justify-content:center; gap:18px; margin:15px 0; flex-wrap:wrap; }
         .social-icon { width:44px; height:44px; background:rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; text-decoration:none; }
+        .footer-text { font-size:13px; margin-top:10px; }
         @media (max-width:640px){ .video-grid,.product-grid { grid-template-columns:1fr; } }
     </style>
 </head>
@@ -96,12 +101,9 @@
                 <div id="blogSection" class="card hidden"><h3>Makala</h3><input type="text" id="blogTitle" placeholder="Kichwa" class="form-control"><textarea id="blogContent" rows="4" placeholder="Maudhui" class="form-control"></textarea><button class="btn btn-success" onclick="addBlog()">Chapisha</button></div>
                 <div id="productSection" class="card hidden"><h3>Bidhaa</h3><input type="text" id="prodName" placeholder="Jina" class="form-control"><input type="number" id="prodPrice" placeholder="Bei (TSh)" class="form-control"><textarea id="prodDesc" placeholder="Maelezo" class="form-control"></textarea><button class="btn btn-success" onclick="addProduct()">Hifadhi</button></div>
                 <div id="manageSection" class="card hidden">
-                    <h3>Futa Video</h3>
-                    <div id="adminVideoList"></div>
-                    <h3>Futa Makala</h3>
-                    <div id="adminBlogList"></div>
-                    <h3>Futa Bidhaa</h3>
-                    <div id="adminProductList"></div>
+                    <h3>Futa Video</h3><div id="adminVideoList"></div>
+                    <h3>Futa Makala</h3><div id="adminBlogList"></div>
+                    <h3>Futa Bidhaa</h3><div id="adminProductList"></div>
                 </div>
             </div>
         </div>
@@ -111,6 +113,7 @@
 </div>
 
 <script>
+    // Firebase Config (Sahihi)
     const firebaseConfig = {
         apiKey: "AIzaSyAyOCmGFxQ4iwB04GThPrV_HBbLO1rHH0I",
         authDomain: "zimrah-500.firebaseapp.com",
@@ -122,9 +125,12 @@
     };
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
-    let isAdmin = false;
-    const ADMIN_PASSWORD = "zimrah2025";
 
+    let isAdmin = false;
+    // Password imefichwa kwa base64 (zimrah2025)
+    const ADMIN_PASSWORD = atob("emltcmFoMjAyNQ==");
+
+    // ========= LOAD DATA =========
     function loadVideos() {
         db.ref('videos').orderByChild('timestamp').once('value').then(snap => {
             let html = '';
@@ -132,11 +138,11 @@
             snap.forEach(c => {
                 let v = c.val();
                 html += `<div class="video-item" onclick="openLink('${v.url}')"><div class="video-thumb"><div class="video-play"><i class="fab fa-youtube"></i></div></div><div class="video-info"><h4>${escapeHtml(v.title)}</h4><p>${escapeHtml(v.description?.substring(0,70))}</p></div></div>`;
-                adminHtml += `<div class="admin-list-item"><span>${escapeHtml(v.title)}</span><button class="btn btn-danger btn-sm" onclick="deleteItem('videos','${c.key}')">Futa</button></div>`;
+                adminHtml += `<div class="admin-list-item"><span>${escapeHtml(v.title)}</span><button class="btn btn-danger" onclick="deleteItem('videos','${c.key}')">Futa</button></div>`;
             });
             document.getElementById("homeVideos").innerHTML = html || "<p>Hakuna video</p>";
-            if(document.getElementById("adminVideoList")) document.getElementById("adminVideoList").innerHTML = adminHtml || "<p>Hakuna video za kufuta</p>";
-        });
+            if(document.getElementById("adminVideoList")) document.getElementById("adminVideoList").innerHTML = adminHtml || "<p>Hakuna video</p>";
+        }).catch(e => showAlert("Kosa la database: "+e.message, "error"));
     }
     function loadProducts() {
         db.ref('products').once('value').then(snap => {
@@ -145,7 +151,7 @@
             snap.forEach(c => {
                 let p = c.val();
                 html += `<div class="product-card" onclick="buyProduct('${escapeHtml(p.name)}',${p.price})"><i class="fas fa-box-open fa-2x"></i><h4>${escapeHtml(p.name)}</h4><div>TSh ${p.price.toLocaleString()}</div><button class="btn">Nunua</button></div>`;
-                adminHtml += `<div class="admin-list-item"><span>${escapeHtml(p.name)} - TSh ${p.price}</span><button class="btn btn-danger btn-sm" onclick="deleteItem('products','${c.key}')">Futa</button></div>`;
+                adminHtml += `<div class="admin-list-item"><span>${escapeHtml(p.name)} - TSh ${p.price}</span><button class="btn btn-danger" onclick="deleteItem('products','${c.key}')">Futa</button></div>`;
             });
             document.getElementById("homeProducts").innerHTML = html || "<p>Hakuna bidhaa</p>";
             document.getElementById("donateProducts").innerHTML = html || "<p>Hakuna bidhaa</p>";
@@ -159,7 +165,7 @@
             snap.forEach(c => {
                 let b = c.val();
                 html += `<div class="card"><h3>${escapeHtml(b.title)}</h3><p>${escapeHtml(b.content?.substring(0,120))}...</p></div>`;
-                adminHtml += `<div class="admin-list-item"><span>${escapeHtml(b.title)}</span><button class="btn btn-danger btn-sm" onclick="deleteItem('blogs','${c.key}')">Futa</button></div>`;
+                adminHtml += `<div class="admin-list-item"><span>${escapeHtml(b.title)}</span><button class="btn btn-danger" onclick="deleteItem('blogs','${c.key}')">Futa</button></div>`;
             });
             document.getElementById("blogList").innerHTML = html || "<p>Hakuna makala</p>";
             if(document.getElementById("adminBlogList")) document.getElementById("adminBlogList").innerHTML = adminHtml || "<p>Hakuna makala</p>";
@@ -177,7 +183,7 @@
         }
     }
     async function addYouTubeVideo() {
-        if(!isAdmin) return;
+        if(!isAdmin) return showAlert("Ingia kwanza", "error");
         let title = document.getElementById("videoTitle").value.trim();
         let desc = document.getElementById("videoDesc").value.trim();
         let url = document.getElementById("videoUrl").value.trim();
@@ -243,10 +249,20 @@
     function openLink(url) { window.open(url,'_blank'); }
     function callNumber(n) { if(confirm(`Piga ${n}?`)) window.open(`tel:${n}`); }
     function buyProduct(name,price) { openLink(`https://wa.me/255752685000?text=Nunua%20${encodeURIComponent(name)}%20TSh%20${price}`); }
-    function showAlert(msg,type) { let d=document.createElement('div'); d.className="alert"; d.style.background=type==='success'?'#d4edda':'#f8d7da'; d.innerHTML=msg; document.getElementById("adminAlert").appendChild(d); setTimeout(()=>d.remove(),4000); }
+    function showAlert(msg,type) { let d=document.createElement('div'); d.className="alert"; d.style.background=type==='success'?'#d4edda':'#f8d7da'; d.style.color=type==='success'?'#155724':'#721c24'; d.innerHTML=msg; document.getElementById("adminAlert").appendChild(d); setTimeout(()=>d.remove(),4000); }
     function escapeHtml(str) { return str?.replace(/[&<>]/g, m=>m==='&'?'&amp;':m==='<'?'&lt;':'&gt;')||''; }
     let tap=0,last=0; document.getElementById("adminTrigger").addEventListener("click",()=>{ let now=Date.now(); if(now-last>800) tap=0; tap++; last=now; if(tap>=3) showAdminLogin(); });
     loadVideos(); loadProducts(); loadBlogs();
+
+    // Service Worker (PWA)
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js').catch(e=>console.log('SW not registered'));
+    }
+    // Create a simple service worker dynamically
+    const swCode = `self.addEventListener('fetch', event => { event.respondWith(fetch(event.request).catch(() => caches.match(event.request))); });`;
+    const blob = new Blob([swCode], {type: 'application/javascript'});
+    const swUrl = URL.createObjectURL(blob);
+    navigator.serviceWorker.register(swUrl).then(reg => console.log('SW registered', reg)).catch(console.error);
 </script>
 </body>
-</html>                                                                                                                                               </html>
+</html>                                                                                                                 </html>
