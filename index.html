@@ -44,7 +44,6 @@
         .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
         .logo-icon i { font-size: 32px; color: var(--primary); }
         .location { background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 20px; display: inline-block; font-size: 14px; margin-top: 10px; }
-        /* Marquee with large bold text */
         .marquee { background: var(--marquee-bg); color: var(--marquee-text); padding: 14px 10px; overflow: hidden; white-space: nowrap; font-size: 1.2rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
         .marquee span { display: inline-block; animation: scroll 35s linear infinite; }
         @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
@@ -59,11 +58,11 @@
         .card { background: var(--card-bg); border-radius: 15px; padding: 20px; margin-bottom: 15px; border: 1px solid var(--border); }
         .card-title { color: var(--primary); margin-bottom: 15px; font-size: 18px; display: flex; align-items: center; gap: 10px; border-left: 5px solid var(--secondary); padding-left: 12px; }
         .welcome-card { background: var(--welcome-bg); border-radius: 12px; padding: 16px; margin-bottom: 15px; color: var(--welcome-text); }
-        .profile-area { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 20px; }
+        .profile-area { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 20px; position: relative; }
         .profile-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; border: 3px solid var(--secondary); background: #ccc; }
         .leadership-btn { background: #25D366; color: white; border: none; padding: 12px 24px; border-radius: 40px; margin-top: 10px; cursor: pointer; font-size: 14px; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; transition: 0.1s; }
         .leadership-btn:active { transform: scale(0.97); }
-        .upload-logo-btn { background: var(--primary); color: white; border: none; padding: 6px 12px; border-radius: 20px; font-size: 12px; cursor: pointer; display: none; } /* hidden */
+        .upload-btn-icon { background: var(--primary); color: white; border: none; border-radius: 30px; padding: 6px 12px; font-size: 12px; cursor: pointer; margin-top: 5px; display: inline-flex; align-items: center; gap: 5px; }
         .video-grid, .dynamic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; margin-top: 15px; }
         .video-item, .blog-card { background: var(--bg); border-radius: 15px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; transition: 0.1s; }
         .blog-card { cursor: default; }
@@ -105,7 +104,7 @@
         .admin-list-item { background: var(--bg); border-radius: 12px; padding: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
         .footer { background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%); color: white; text-align: center; padding: 25px 15px; margin-top: 30px; }
         .social-links { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
-        .social-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: 0.1s; }
+        .social-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: 0.2s; }
         .social-icon:hover { background: var(--secondary); transform: scale(1.05); }
         .toast { position: fixed; bottom: 20px; left: 20px; right: 20px; background: #333; color: white; padding: 12px; border-radius: 12px; text-align: center; z-index: 20000; animation: fadeInUp 0.3s; max-width: 400px; margin: 0 auto; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -124,7 +123,7 @@
             <div class="logo-icon" id="logoIcon">
                 <i class="fas fa-church"></i>
             </div>
-            <div><h1>ZIMRAH ARTS NETWORK</h1><p>Kueneza Injili Kupitia Sanaa</p></div>
+            <div><h1>ZIMRAH ARTS NETWORK</h1><p>Ni Sauti Ya Mungu Kupitia Sanaa</p></div>
         </div>
         <div class="location"><i class="fas fa-map-marker-alt"></i> Morogoro Mvomero</div>
     </header>
@@ -145,15 +144,16 @@
                 <div class="profile-area">
                     <div style="position: relative; display: inline-block;">
                         <img src="https://via.placeholder.com/100?text=Zimrah" alt="Mwongozo" class="profile-img" id="profileImg" onerror="this.src='https://via.placeholder.com/100'">
-                        <button class="upload-logo-btn" onclick="uploadProfileImage()" style="position: absolute; bottom: 0; right: 0;"></button>
+                        <!-- Button to change profile image (only visible when admin logged in) -->
+                        <button id="changeProfileBtn" class="upload-btn-icon" style="position: absolute; bottom: 0; right: 0; display: none;" onclick="uploadProfileImage()"><i class="fas fa-camera"></i></button>
                     </div>
-                    <h3>Frank Ronginus Kawonga</h3>
+                    <h3>Frank R Kawonga</h3>
                     <p>Mwanzilishi & Mkurugenzi | Zimrah Arts Network</p>
                     <button class="leadership-btn" onclick="openWhatsAppLeader()"><i class="fab fa-whatsapp"></i> WASILIANA NA MWONGOZO</button>
                 </div>
                 <div class="welcome-card" style="margin-top: 10px;">
                     <h3><i class="fas fa-hands-helping"></i> Utangulizi wa Mwanzilishi & Mwaliko</h3>
-                    <p>Ndugu yangu, ninakukaribisha kwa moyo wote katika Zimrah Arts Network. Huduma hii imezaliwa kwa ajili ya kueneza Injili ya Yesu Kristo kwa kutumia sanaa kama zana. Ninakualika ujiunge nasi katika safari hii ya kiroho, iwe kwa maombi, ushauri, mchango wa fedha, au vifaa vya utayarishaji. Pamoja tunaweza kubadilisha matokeo makubwa kwa utukufu wa Mungu. <strong>Karibu sana, baraka tele!</strong></p>
+                    <p>Ndugu yangu, ninakukaribisha kwa moyo wote katika Zimrah Arts Network. Huduma hii imezaliwa kwa ajili ya kueneza Injili ya Yesu Kristo kwa kutumia sanaa kama zana ya kufikisha Injili kwa MataifaYote. Ninakualika ujiunge nasi katika safari hii ya kiroho, iwe kwa maombi, ushauri, mchango wa fedha, au vifaa vya utayarishaji. Pamoja tunaweza kubadilisha matokeo makubwa kwa utukufu wa Mungu. <strong>Karibu sana, baraka tele!</strong></p>
                 </div>
                 <div class="welcome-card">
                     <h3>Huduma ya Kiinjili Kupitia Sanaa</h3>
@@ -179,7 +179,6 @@
         <div id="writeBlogSection" class="admin-section hidden"><h3 class="admin-section-title">Andika Makala</h3><div class="form-group"><label>Kichwa</label><input type="text" id="blogTitle" class="form-control"></div><div class="form-group"><label>Vitambulisho</label><input type="text" id="blogTags" class="form-control" placeholder="injili, sanaa"></div><div class="editor-toolbar"><button class="editor-btn" onclick="formatText('bold')"><b>B</b></button><button class="editor-btn" onclick="formatText('italic')"><i>I</i></button><button class="editor-btn" onclick="formatText('underline')"><u>U</u></button><button class="editor-btn" onclick="formatText('h1')">H1</button><button class="editor-btn" onclick="insertImage()"><i class="fas fa-image"></i></button></div><div class="editor-content" id="blogContent" contenteditable="true"><p>Andika makala yako hapa...</p></div><div class="live-preview-area"><h4>Muonekano</h4><div id="liveBlogPreview" style="background:white; padding:10px; border-radius:10px;"></div></div><div style="display:flex; gap:10px; margin-top:15px;"><button class="btn" onclick="saveBlogDraft()">Rasimu</button><button class="btn btn-success" onclick="publishBlog()">Chapisha</button></div></div>
         <div id="addProductSection" class="admin-section hidden"><h3 class="admin-section-title">Ongeza Bidhaa</h3><div class="form-group"><label>Jina</label><input type="text" id="productName" class="form-control"></div><div class="form-group"><label>Bei (TSh)</label><input type="number" id="productPrice" class="form-control" value="5000"></div><div class="form-group"><label>Maelezo</label><textarea id="productDescription" class="form-control" rows="2"></textarea></div><button class="btn btn-success" onclick="saveProduct()">Hifadhi Bidhaa</button><button class="btn btn-gold" style="margin-left: 10px;" onclick="removeDuplicateProducts()"><i class="fas fa-broom"></i> Futa Nakala Zilizorudiwa</button><div class="mt-15"><h4>Bidhaa zilizopo</h4><div id="adminProductList" class="admin-list"></div></div></div>
         <div class="admin-section"><h3 class="admin-section-title">Zana</h3><div class="quick-actions"><div class="quick-action-btn" onclick="recordDonation()"><i class="fas fa-donate"></i><div>Rekodi Changia</div></div><div class="quick-action-btn" onclick="backupData()"><i class="fas fa-download"></i><div>Pakua Backup</div></div><div class="quick-action-btn" onclick="importData()"><i class="fas fa-upload"></i><div>Import Backup</div></div><div class="quick-action-btn" onclick="clearAllData()"><i class="fas fa-trash"></i><div>Futa Data</div></div><div class="quick-action-btn" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i><div>Toka Admin</div></div><div class="quick-action-btn" onclick="uploadSiteLogo()"><i class="fas fa-image"></i><div>Badilisha Logo ya Huduma</div></div><div class="quick-action-btn" onclick="removeDuplicateProducts()"><i class="fas fa-clone"></i><div>Ondoa Nakala Bidhaa</div></div></div></div></div></div>
-        <!-- CONTACT TAB with all links: phone, WhatsApp, Email, socials -->
         <div id="contact-tab" class="tab-content">
             <div class="card">
                 <h2 class="card-title"><i class="fas fa-address-card"></i> Mawasiliano Yetu</h2>
@@ -321,7 +320,10 @@
         if(tabName==='donate') renderDonateProducts(); 
     }
     function checkAdminUI() { 
-        if(sessionStorage.getItem('admin_logged')==='yes') { 
+        const isAdmin = sessionStorage.getItem('admin_logged') === 'yes';
+        const changeProfileBtn = document.getElementById('changeProfileBtn');
+        if(changeProfileBtn) changeProfileBtn.style.display = isAdmin ? 'block' : 'none';
+        if(isAdmin) { 
             document.getElementById('adminLoginPrompt').classList.add('hidden'); 
             document.getElementById('adminDashboard').classList.remove('hidden'); 
             renderAdminVideoList(); renderAdminProductList(); updateStats(); 
@@ -491,6 +493,7 @@
         localStorage.setItem('zimrah_default_products_seeded', 'true');
         saveData(); 
     }
+    // Upload functions for logo and profile image
     function uploadSiteLogo() {
         let input = document.createElement('input');
         input.type = 'file';
@@ -531,9 +534,7 @@
     }
     function applyLogo(dataUrl) {
         let logoDiv = document.getElementById('logoIcon');
-        if(logoDiv) {
-            logoDiv.innerHTML = `<img src="${dataUrl}" alt="Logo">`;
-        }
+        if(logoDiv) logoDiv.innerHTML = `<img src="${dataUrl}" alt="Logo" style="width:100%; height:100%; object-fit:cover;">`;
     }
     function applyProfileImage(dataUrl) {
         let profileImg = document.getElementById('profileImg');
