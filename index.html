@@ -44,8 +44,8 @@
         .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
         .logo-icon i { font-size: 32px; color: var(--primary); }
         .location { background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 20px; display: inline-block; font-size: 14px; margin-top: 10px; }
-        .marquee { background: var(--marquee-bg); color: var(--marquee-text); padding: 14px 10px; overflow: hidden; white-space: nowrap; font-size: 1.2rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
-        .marquee span { display: inline-block; animation: scroll 35s linear infinite; }
+        .marquee { background: var(--marquee-bg); color: var(--marquee-text); padding: 10px; overflow: hidden; white-space: nowrap; font-size: 14px; }
+        .marquee span { display: inline-block; animation: scroll 18s linear infinite; }
         @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         .nav-tabs { display: flex; background: var(--card-bg); border-bottom: 3px solid var(--border); overflow-x: auto; padding: 10px 5px 0 5px; scrollbar-width: none; }
         .nav-tabs::-webkit-scrollbar { display: none; }
@@ -58,11 +58,11 @@
         .card { background: var(--card-bg); border-radius: 15px; padding: 20px; margin-bottom: 15px; border: 1px solid var(--border); }
         .card-title { color: var(--primary); margin-bottom: 15px; font-size: 18px; display: flex; align-items: center; gap: 10px; border-left: 5px solid var(--secondary); padding-left: 12px; }
         .welcome-card { background: var(--welcome-bg); border-radius: 12px; padding: 16px; margin-bottom: 15px; color: var(--welcome-text); }
-        .profile-area { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 20px; position: relative; }
+        .profile-area { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 20px; }
         .profile-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; border: 3px solid var(--secondary); background: #ccc; }
         .leadership-btn { background: #25D366; color: white; border: none; padding: 12px 24px; border-radius: 40px; margin-top: 10px; cursor: pointer; font-size: 14px; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; transition: 0.1s; }
         .leadership-btn:active { transform: scale(0.97); }
-        .upload-btn-icon { background: var(--primary); color: white; border: none; border-radius: 30px; padding: 6px 12px; font-size: 12px; cursor: pointer; margin-top: 5px; display: inline-flex; align-items: center; gap: 5px; }
+        .prayer-request { background: rgba(0,0,0,0.05); padding: 10px; border-radius: 16px; margin-top: 12px; font-style: italic; font-size: 14px; }
         .video-grid, .dynamic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; margin-top: 15px; }
         .video-item, .blog-card { background: var(--bg); border-radius: 15px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; transition: 0.1s; }
         .blog-card { cursor: default; }
@@ -95,7 +95,6 @@
         .editor-toolbar { background: var(--bg); border: 2px solid var(--border); border-bottom: none; padding: 8px; border-radius: 10px 10px 0 0; display: flex; flex-wrap: wrap; gap: 5px; }
         .editor-btn { width: 36px; height: 36px; border: 1px solid var(--border); background: var(--card-bg); border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
         .editor-content { min-height: 180px; border: 2px solid var(--border); border-radius: 0 0 10px 10px; padding: 12px; font-size: 16px; outline: none; background: var(--bg); color: var(--text); }
-        .live-preview-area { background: #fef9e6; border-radius: 12px; padding: 15px; margin-top: 15px; }
         .quick-actions { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin: 15px 0; }
         .quick-action-btn { background: var(--bg); border-radius: 12px; padding: 12px; text-align: center; border: 2px solid var(--border); cursor: pointer; }
         .stats-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
@@ -103,14 +102,15 @@
         .admin-list { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
         .admin-list-item { background: var(--bg); border-radius: 12px; padding: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
         .footer { background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%); color: white; text-align: center; padding: 25px 15px; margin-top: 30px; }
-        .social-links { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
-        .social-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: 0.2s; }
-        .social-icon:hover { background: var(--secondary); transform: scale(1.05); }
+        .social-links { display: flex; justify-content: center; gap: 15px; margin: 20px 0; flex-wrap: wrap; }
+        .social-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; }
         .toast { position: fixed; bottom: 20px; left: 20px; right: 20px; background: #333; color: white; padding: 12px; border-radius: 12px; text-align: center; z-index: 20000; animation: fadeInUp 0.3s; max-width: 400px; margin: 0 auto; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .hidden { display: none !important; }
         .empty-state { text-align: center; padding: 30px; color: var(--text-light); }
-        @media (max-width: 768px) { .tab-btn { min-width: 75px; font-size: 12px; } .product-grid { grid-template-columns: repeat(2,1fr); } .marquee { font-size: 0.9rem; padding: 10px; } }
+        .contact-details { background: var(--bg); border-radius: 16px; padding: 20px; text-align: center; margin-bottom: 15px; }
+        .contact-details p { margin: 12px 0; }
+        @media (max-width: 768px) { .tab-btn { min-width: 75px; font-size: 12px; } .product-grid { grid-template-columns: repeat(2,1fr); } }
     </style>
 </head>
 <body>
@@ -123,11 +123,11 @@
             <div class="logo-icon" id="logoIcon">
                 <i class="fas fa-church"></i>
             </div>
-            <div><h1>ZIMRAH ARTS NETWORK</h1><p>Ni Sauti Ya Mungu Kupitia Sanaa</p></div>
+            <div><h1>ZIMRAH ARTS NETWORK</h1><p>Kueneza Injili Kupitia Sanaa</p></div>
         </div>
         <div class="location"><i class="fas fa-map-marker-alt"></i> Morogoro Mvomero</div>
     </header>
-    <div class="marquee"><span>KARIBU ZIMRAH ARTS NETWORK NI HUDUMA YA KIINJILI KUPITIA SANAA INABADILISHA MATOKEO MAKUBWA. KARIBU TUSHIRIKI KWA MCHANGO WA KIFEDHA, VIFAA VYA PRODUCTION. USHAURI. MAOMBI. MOBILE 0752 685 000 / 0656555000</span></div>
+    <div class="marquee"><span id="marqueeText">KARIBU ZIMRAH ARTS NETWORK NI HUDUMA YA KIINJILI INAYOTUMIA SANAA KAMA JUKWAA LA PEKEE. KARIBU KWA MCHANGO WA WAKO: 0752 685 000</span></div>
     <div class="nav-tabs">
         <button class="tab-btn active" onclick="showTab('home',event)"><i class="fas fa-home"></i> Nyumbani</button>
         <button class="tab-btn" onclick="showTab('youtube',event)"><i class="fab fa-youtube"></i> YouTube</button>
@@ -141,20 +141,7 @@
         <div id="home-tab" class="tab-content active">
             <div class="card">
                 <h2 class="card-title"><i class="fas fa-cross"></i> Karibu Zimrah Arts Network</h2>
-                <div class="profile-area">
-                    <div style="position: relative; display: inline-block;">
-                        <img src="https://via.placeholder.com/100?text=Zimrah" alt="Mwongozo" class="profile-img" id="profileImg" onerror="this.src='https://via.placeholder.com/100'">
-                        <!-- Button to change profile image (only visible when admin logged in) -->
-                        <button id="changeProfileBtn" class="upload-btn-icon" style="position: absolute; bottom: 0; right: 0; display: none;" onclick="uploadProfileImage()"><i class="fas fa-camera"></i></button>
-                    </div>
-                    <h3>Frank R Kawonga</h3>
-                    <p>Mwanzilishi & Mkurugenzi | Zimrah Arts Network</p>
-                    <button class="leadership-btn" onclick="openWhatsAppLeader()"><i class="fab fa-whatsapp"></i> WASILIANA NA MWONGOZO</button>
-                </div>
-                <div class="welcome-card" style="margin-top: 10px;">
-                    <h3><i class="fas fa-hands-helping"></i> Utangulizi wa Mwanzilishi & Mwaliko</h3>
-                    <p>Ndugu yangu, ninakukaribisha kwa moyo wote katika Zimrah Arts Network. Huduma hii imezaliwa kwa ajili ya kueneza Injili ya Yesu Kristo kwa kutumia sanaa kama zana ya kufikisha Injili kwa MataifaYote. Ninakualika ujiunge nasi katika safari hii ya kiroho, iwe kwa maombi, ushauri, mchango wa fedha, au vifaa vya utayarishaji. Pamoja tunaweza kubadilisha matokeo makubwa kwa utukufu wa Mungu. <strong>Karibu sana, baraka tele!</strong></p>
-                </div>
+                <div id="leaderProfileContainer" class="profile-area"></div>
                 <div class="welcome-card">
                     <h3>Huduma ya Kiinjili Kupitia Sanaa</h3>
                     <p>Zimrah Arts Network ni huduma ya kiinjili inayotumia sanaa kama jukwaa la pekee la kueneza Injili ya Yesu Kristo. Huduma hii inalenga kumtangaza Kristo kupitia vipaji vya ubunifu kama muziki, filamu, uchoraji, uandishi, maigizo na fani nyingine za kisanaa.</p>
@@ -174,61 +161,21 @@
         <div id="blog-tab" class="tab-content"><div class="card"><div class="video-item" onclick="openLink('https://zimrahnetwork.blogspot.com/')"><div class="video-thumb"><div class="video-play"><i class="fas fa-book-reader"></i></div></div><div class="video-info"><h4>Blog Rasmi</h4><button class="btn">Soma Makala</button></div></div></div></div>
         <div id="donate-tab" class="tab-content"><div class="card"><div style="background:linear-gradient(135deg,var(--success),#2f855a); color:white; padding:20px; border-radius:12px; text-align:center;"><h3>Toa Sadaka</h3><p>M-Pesa / Airtel Money</p><div style="font-size:24px; font-weight:bold;">0752685000</div><p>Frank Ronginus Kawonga</p><button class="btn mt-10" onclick="callNumber('0752685000')" style="background:white; color:var(--success);">Piga Simu</button></div><h3 class="mt-15">Bidhaa Zetu</h3><div id="donateProductList" class="product-grid"></div></div></div>
         <div id="admin-tab" class="tab-content"><div id="adminAlert"></div><div id="adminLoginPrompt"><div class="card text-center"><div style="width:80px;height:80px;background:var(--primary);border-radius:50%;display:flex;margin:0 auto 20px;align-items:center;justify-content:center;"><i class="fas fa-lock fa-2x"></i></div><h2>Admin Panel</h2><button class="btn btn-gold" onclick="showAdminLogin()">Ingia Admin</button></div></div>
-        <div id="adminDashboard" class="hidden"><div class="admin-section"><h3 class="admin-section-title">Dashboard</h3><div class="stats-grid" id="statsGrid"></div></div><div class="admin-section"><h3 class="admin-section-title">Vitendo</h3><div class="quick-actions"><div class="quick-action-btn" onclick="showAdminSection('uploadVideo')"><i class="fas fa-video"></i><div>Ongeza Video</div></div><div class="quick-action-btn" onclick="showAdminSection('writeBlog')"><i class="fas fa-edit"></i><div>Andika Makala</div></div><div class="quick-action-btn" onclick="showAdminSection('addProduct')"><i class="fas fa-plus-circle"></i><div>Ongeza Bidhaa</div></div><div class="quick-action-btn" onclick="sendNotification()"><i class="fas fa-bell"></i><div>Tuma Arifa</div></div></div></div>
+        <div id="adminDashboard" class="hidden"><div class="admin-section"><h3 class="admin-section-title">Dashboard</h3><div class="stats-grid" id="statsGrid"></div></div><div class="admin-section"><h3 class="admin-section-title">Vitendo</h3><div class="quick-actions"><div class="quick-action-btn" onclick="showAdminSection('uploadVideo')"><i class="fas fa-video"></i><div>Ongeza Video</div></div><div class="quick-action-btn" onclick="showAdminSection('writeBlog')"><i class="fas fa-edit"></i><div>Andika Makala</div></div><div class="quick-action-btn" onclick="showAdminSection('addProduct')"><i class="fas fa-plus-circle"></i><div>Ongeza Bidhaa</div></div><div class="quick-action-btn" onclick="showAdminSection('leadership')"><i class="fas fa-users"></i><div>Dhibiti Uongozi</div></div><div class="quick-action-btn" onclick="showAdminSection('contactSettings')"><i class="fas fa-envelope"></i><div>Mawasiliano Settings</div></div><div class="quick-action-btn" onclick="sendNotification()"><i class="fas fa-bell"></i><div>Tuma Arifa</div></div></div></div>
         <div id="uploadVideoSection" class="admin-section hidden"><h3 class="admin-section-title">Ongeza Video (YouTube)</h3><div class="form-group"><label>Kichwa</label><input type="text" id="videoTitle" class="form-control"></div><div class="form-group"><label>Maelezo</label><textarea id="videoDescription" class="form-control" rows="2"></textarea></div><div class="form-group"><label>YouTube URL</label><input type="url" id="videoUrl" class="form-control"></div><button class="btn btn-success" onclick="saveVideo()">Hifadhi Video</button><div class="mt-15"><h4>Video zilizopo</h4><div id="adminVideoList" class="admin-list"></div></div></div>
         <div id="writeBlogSection" class="admin-section hidden"><h3 class="admin-section-title">Andika Makala</h3><div class="form-group"><label>Kichwa</label><input type="text" id="blogTitle" class="form-control"></div><div class="form-group"><label>Vitambulisho</label><input type="text" id="blogTags" class="form-control" placeholder="injili, sanaa"></div><div class="editor-toolbar"><button class="editor-btn" onclick="formatText('bold')"><b>B</b></button><button class="editor-btn" onclick="formatText('italic')"><i>I</i></button><button class="editor-btn" onclick="formatText('underline')"><u>U</u></button><button class="editor-btn" onclick="formatText('h1')">H1</button><button class="editor-btn" onclick="insertImage()"><i class="fas fa-image"></i></button></div><div class="editor-content" id="blogContent" contenteditable="true"><p>Andika makala yako hapa...</p></div><div class="live-preview-area"><h4>Muonekano</h4><div id="liveBlogPreview" style="background:white; padding:10px; border-radius:10px;"></div></div><div style="display:flex; gap:10px; margin-top:15px;"><button class="btn" onclick="saveBlogDraft()">Rasimu</button><button class="btn btn-success" onclick="publishBlog()">Chapisha</button></div></div>
-        <div id="addProductSection" class="admin-section hidden"><h3 class="admin-section-title">Ongeza Bidhaa</h3><div class="form-group"><label>Jina</label><input type="text" id="productName" class="form-control"></div><div class="form-group"><label>Bei (TSh)</label><input type="number" id="productPrice" class="form-control" value="5000"></div><div class="form-group"><label>Maelezo</label><textarea id="productDescription" class="form-control" rows="2"></textarea></div><button class="btn btn-success" onclick="saveProduct()">Hifadhi Bidhaa</button><button class="btn btn-gold" style="margin-left: 10px;" onclick="removeDuplicateProducts()"><i class="fas fa-broom"></i> Futa Nakala Zilizorudiwa</button><div class="mt-15"><h4>Bidhaa zilizopo</h4><div id="adminProductList" class="admin-list"></div></div></div>
-        <div class="admin-section"><h3 class="admin-section-title">Zana</h3><div class="quick-actions"><div class="quick-action-btn" onclick="recordDonation()"><i class="fas fa-donate"></i><div>Rekodi Changia</div></div><div class="quick-action-btn" onclick="backupData()"><i class="fas fa-download"></i><div>Pakua Backup</div></div><div class="quick-action-btn" onclick="importData()"><i class="fas fa-upload"></i><div>Import Backup</div></div><div class="quick-action-btn" onclick="clearAllData()"><i class="fas fa-trash"></i><div>Futa Data</div></div><div class="quick-action-btn" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i><div>Toka Admin</div></div><div class="quick-action-btn" onclick="uploadSiteLogo()"><i class="fas fa-image"></i><div>Badilisha Logo ya Huduma</div></div><div class="quick-action-btn" onclick="removeDuplicateProducts()"><i class="fas fa-clone"></i><div>Ondoa Nakala Bidhaa</div></div></div></div></div></div>
-        <div id="contact-tab" class="tab-content">
-            <div class="card">
-                <h2 class="card-title"><i class="fas fa-address-card"></i> Mawasiliano Yetu</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.2rem; margin-bottom: 1.5rem;">
-                    <div style="text-align: center; background: var(--bg); padding: 1rem; border-radius: 1rem;">
-                        <i class="fas fa-phone-alt fa-2x" style="color: var(--success);"></i>
-                        <h4>Simu</h4>
-                        <p>0752 685 000</p>
-                        <button class="btn btn-sm" onclick="callNumber('0752685000')">Piga</button>
-                    </div>
-                    <div style="text-align: center; background: var(--bg); padding: 1rem; border-radius: 1rem;">
-                        <i class="fab fa-whatsapp fa-2x" style="color: #25D366;"></i>
-                        <h4>WhatsApp</h4>
-                        <p>0752 685 000</p>
-                        <button class="btn btn-sm btn-wa" onclick="openWhatsAppLeader()">Wasiliana</button>
-                    </div>
-                    <div style="text-align: center; background: var(--bg); padding: 1rem; border-radius: 1rem;">
-                        <i class="fas fa-envelope fa-2x" style="color: #ea4335;"></i>
-                        <h4>Barua Pepe</h4>
-                        <p>zimrahnetwork@gmail.com</p>
-                        <button class="btn btn-sm" onclick="window.location.href='mailto:zimrahnetwork@gmail.com?subject=Habari%20kutoka%20Zimrah%20Arts'">Tuma Email</button>
-                    </div>
-                </div>
-                <div class="social-links" style="margin-top: 0.5rem;">
-                    <a href="https://youtube.com/@zimrahnetwork" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://zimrahnetwork.blogspot.com/" class="social-icon" target="_blank"><i class="fas fa-blog"></i></a>
-                    <a href="https://www.facebook.com/61580974656071" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.tiktok.com/@zimrahnetwork" class="social-icon" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="mailto:zimrahnetwork@gmail.com" class="social-icon" target="_blank"><i class="fas fa-envelope"></i></a>
-                </div>
-                <p class="mt-15" style="text-align: center; margin-top: 1rem;"><i class="fas fa-map-marker-alt"></i> Morogoro Mvomero, Tanzania</p>
-            </div>
-        </div>
+        <div id="addProductSection" class="admin-section hidden"><h3 class="admin-section-title">Ongeza Bidhaa</h3><div class="form-group"><label>Jina</label><input type="text" id="productName" class="form-control"></div><div class="form-group"><label>Bei (TSh)</label><input type="number" id="productPrice" class="form-control" value="5000"></div><div class="form-group"><label>Maelezo</label><textarea id="productDescription" class="form-control" rows="2"></textarea></div><button class="btn btn-success" onclick="saveProduct()">Hifadhi Bidhaa</button><div class="mt-15"><h4>Bidhaa zilizopo</h4><div id="adminProductList" class="admin-list"></div></div></div>
+        <div id="leadershipSection" class="admin-section hidden"><h3 class="admin-section-title"><i class="fas fa-user-tie"></i> Dhibiti Uongozi</h3><div class="form-group"><label>Jina Kamili la Kiongozi</label><input type="text" id="leaderName" class="form-control" placeholder="Frank Ronginus Kawonga"></div><div class="form-group"><label>Nafasi / Cheo</label><input type="text" id="leaderRole" class="form-control" placeholder="Mwanzilishi & Mkurugenzi"></div><div class="form-group"><label>Picha ya Kiongozi (Upload)</label><input type="file" id="leaderImageInput" accept="image/*" class="form-control"><div id="leaderImagePreview" style="width:80px; height:80px; border-radius:50%; margin-top:8px; background:#ccc; background-size:cover;"></div><button class="btn btn-sm mt-5" onclick="uploadLeaderImage()">Pakia Picha</button></div><div class="form-group"><label>Naomba / Ombi la Kiongozi</label><textarea id="leaderPrayer" class="form-control" rows="3" placeholder="Ombi la maombi au ujumbe wa kiroho..."></textarea></div><div class="quick-actions"><button class="btn btn-success" onclick="saveLeadershipData()"><i class="fas fa-save"></i> Hifadhi Mabadiliko</button><button class="btn btn-danger" onclick="resetLeadershipToDefault()"><i class="fas fa-trash"></i> Futa / Rudia Msingi</button></div></div>
+        <div id="contactSettingsSection" class="admin-section hidden"><h3 class="admin-section-title">Mipangilio ya Mawasiliano</h3><div class="form-group"><label>Barua pepe (Email)</label><input type="email" id="contactEmail" class="form-control" placeholder="info@zimraharts.com"></div><div class="form-group"><label>Namba ya Simu (Msaada)</label><input type="tel" id="contactPhone" class="form-control" placeholder="0752685000"></div><button class="btn btn-success" onclick="saveContactSettings()">Hifadhi Mipangilio</button></div>
+        <div class="admin-section"><h3 class="admin-section-title">Zana</h3><div class="quick-actions"><div class="quick-action-btn" onclick="recordDonation()"><i class="fas fa-donate"></i><div>Rekodi Changia</div></div><div class="quick-action-btn" onclick="backupData()"><i class="fas fa-download"></i><div>Pakua Backup</div></div><div class="quick-action-btn" onclick="importData()"><i class="fas fa-upload"></i><div>Import Backup</div></div><div class="quick-action-btn" onclick="clearAllData()"><i class="fas fa-trash"></i><div>Futa Data</div></div><div class="quick-action-btn" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i><div>Toka Admin</div></div><div class="quick-action-btn" onclick="uploadSiteLogo()"><i class="fas fa-image"></i><div>Badilisha Logo</div></div></div></div></div></div>
+        <div id="contact-tab" class="tab-content"><div class="card"><div class="contact-details"><i class="fas fa-envelope fa-2x" style="color:var(--secondary);"></i><h3>Wasiliana Nasi</h3><p><i class="fas fa-phone-alt"></i> <strong>Simu/WhatsApp:</strong> <span id="contactPhoneDisplay">0752685000</span><br><button class="btn btn-sm mt-5" onclick="callNumber('0752685000')">Piga Sasa</button></p><p><i class="fas fa-envelope"></i> <strong>Barua pepe:</strong> <span id="contactEmailDisplay">zimraharts@gmail.com</span><br><a href="mailto:zimraharts@gmail.com" style="color:var(--secondary);">Tuma Barua</a></p><div class="social-links"><a href="https://youtube.com/@zimrahnetwork" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a><a href="https://zimrahnetwork.blogspot.com/" target="_blank" class="social-icon"><i class="fas fa-blog"></i></a><a href="https://www.facebook.com/61580974656071" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a><a href="https://www.tiktok.com/@zimrahnetwork" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a><a href="https://wa.me/255752685000" target="_blank" class="social-icon" style="background:#25D366;"><i class="fab fa-whatsapp"></i></a></div><p>Huduma zote za Zimrah: Nyimbo, Mafundisho, Bidhaa za Kiroho</p></div></div></div>
     </div>
-    <footer class="footer">
-        <div class="social-links">
-            <a href="https://youtube.com/@zimrahnetwork" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://zimrahnetwork.blogspot.com/" class="social-icon" target="_blank"><i class="fas fa-blog"></i></a>
-            <a href="https://www.facebook.com/61580974656071" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.tiktok.com/@zimrahnetwork" class="social-icon" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="mailto:zimrahnetwork@gmail.com" class="social-icon" target="_blank"><i class="fas fa-envelope"></i></a>
-        </div>
-        <p>© 2025 Zimrah Arts Network | Simu: 0752 685 000 / 0656 555 000 | Email: zimrahnetwork@gmail.com</p>
-    </footer>
+    <footer class="footer"><div class="social-links"><a href="https://youtube.com/@zimrahnetwork" class="social-icon"><i class="fab fa-youtube"></i></a><a href="https://zimrahnetwork.blogspot.com/" class="social-icon"><i class="fas fa-blog"></i></a><a href="https://www.facebook.com/61580974656071" class="social-icon"><i class="fab fa-facebook"></i></a><a href="https://www.tiktok.com/@zimrahnetwork" class="social-icon"><i class="fab fa-tiktok"></i></a></div><p>© 2025 Zimrah Arts Network | Simu: 0752685000 | Morogoro Mvomero</p></footer>
 </div>
 <script>
     const ADMIN_PASSWORD_HASH = btoa("frank44");
-    let appData = { videos: [], blogs: [], products: [], donations: [], blogInteractions: {} };
+    let appData = { videos: [], blogs: [], products: [], donations: [], blogInteractions: {}, leadership: null, contactSettings: { email: "zimraharts@gmail.com", phone: "0752685000" } };
     let defaultProductsSeeded = false;
-
     function loadData() { 
         let s = localStorage.getItem('zimrah_mobile_data'); 
         if(s) try { appData = JSON.parse(s); } catch(e){} 
@@ -237,76 +184,91 @@
         appData.products = appData.products || [];
         appData.donations = appData.donations || [];
         appData.blogInteractions = appData.blogInteractions || {};
+        appData.contactSettings = appData.contactSettings || { email: "zimraharts@gmail.com", phone: "0752685000" };
+        if(!appData.leadership) {
+            appData.leadership = { name: "Frank Ronginus Kawonga", role: "Mwanzilishi & Mkurugenzi", prayerRequest: "Tumtatie Mungu kwa ajili ya huduma, uongozi na upanuzi wa Injili kupitia sanaa.", image: null };
+        }
         defaultProductsSeeded = localStorage.getItem('zimrah_default_products_seeded') === 'true';
-        removeDuplicateProducts(false);
+        applyMarqueeText();
     }
-    function deduplicateProductsInternal() {
-        const unique = new Map();
-        for(const prod of appData.products) {
-            const key = prod.name.toLowerCase().trim();
-            if(!unique.has(key) || unique.get(key).id < prod.id) {
-                unique.set(key, prod);
-            }
-        }
-        const after = Array.from(unique.values());
-        if(after.length !== appData.products.length) {
-            appData.products = after;
-            return true;
-        }
-        return false;
+    function saveData() { localStorage.setItem('zimrah_mobile_data', JSON.stringify(appData)); renderAll(); renderAdminProductList(); renderLeaderProfile(); updateContactDisplay(); }
+    function renderAll() { renderHomeContent(); renderDonateProducts(); renderAdminVideoList(); renderAdminProductList(); updateStats(); renderLeaderProfile(); }
+    function renderLeaderProfile() {
+        let container = document.getElementById('leaderProfileContainer');
+        if(!container) return;
+        let ld = appData.leadership;
+        let imgUrl = ld.image ? ld.image : "https://via.placeholder.com/100?text=Zimrah";
+        container.innerHTML = `<div class="profile-area"><div style="position:relative; display:inline-block;"><img src="${imgUrl}" class="profile-img" id="profileImg" onerror="this.src='https://via.placeholder.com/100'"></div><h3>${escapeHtml(ld.name)}</h3><p>${escapeHtml(ld.role)}</p><div class="prayer-request"><i class="fas fa-praying-hands"></i> <strong>Naomba / Ombi:</strong> ${escapeHtml(ld.prayerRequest)}</div><button class="leadership-btn" onclick="openWhatsAppLeader()"><i class="fab fa-whatsapp"></i> WASILIANA NA MWONGOZO</button></div>`;
     }
-    function removeDuplicateProducts(showMsg = true) {
-        const changed = deduplicateProductsInternal();
-        if(changed) {
+    function saveLeadershipData() {
+        let newName = document.getElementById('leaderName').value.trim();
+        let newRole = document.getElementById('leaderRole').value.trim();
+        let newPrayer = document.getElementById('leaderPrayer').value.trim();
+        if(!newName) return showToast("Jina la kiongozi linahitajika", "error");
+        appData.leadership.name = newName;
+        appData.leadership.role = newRole || "Kiongozi";
+        appData.leadership.prayerRequest = newPrayer || "Atuombee huduma";
+        if(window.tempLeaderImage) { appData.leadership.image = window.tempLeaderImage; window.tempLeaderImage = null; }
+        saveData();
+        showToast("Uongozi umesasishwa!", "success");
+        renderLeaderProfile();
+        document.getElementById('leaderImagePreview') && (document.getElementById('leaderImagePreview').style.backgroundImage = `url(${appData.leadership.image || ''})`);
+    }
+    function resetLeadershipToDefault() {
+        if(confirm("Futa kabisa taarifa za kiongozi na kurudisha msingi?")){
+            appData.leadership = { name: "Frank Ronginus Kawonga", role: "Mwanzilishi & Mkurugenzi", prayerRequest: "Tumtatie Mungu kwa ajili ya huduma, uongozi na nguvu za kiinjili.", image: null };
+            if(document.getElementById('leaderName')) document.getElementById('leaderName').value = appData.leadership.name;
+            if(document.getElementById('leaderRole')) document.getElementById('leaderRole').value = appData.leadership.role;
+            if(document.getElementById('leaderPrayer')) document.getElementById('leaderPrayer').value = appData.leadership.prayerRequest;
+            document.getElementById('leaderImagePreview') && (document.getElementById('leaderImagePreview').style.backgroundImage = '');
+            window.tempLeaderImage = null;
             saveData();
-            if(showMsg) showToast("Nakala za bidhaa zilizorudiwa zimefutwa!", "success");
-        } else {
-            if(showMsg) showToast("Hakuna nakala zilizorudiwa za bidhaa", "info");
+            showToast("Uongozi umerejeshwa kwenye default", "success");
         }
-        renderAdminProductList();
-        renderHomeContent();
-        renderDonateProducts();
     }
-    function saveData() { 
-        localStorage.setItem('zimrah_mobile_data', JSON.stringify(appData)); 
-        renderAll(); 
-        renderAdminProductList();
+    function uploadLeaderImage() {
+        let input = document.getElementById('leaderImageInput');
+        let file = input.files[0];
+        if(!file) return;
+        let reader = new FileReader();
+        reader.onload = (e) => {
+            window.tempLeaderImage = e.target.result;
+            let previewDiv = document.getElementById('leaderImagePreview');
+            if(previewDiv) previewDiv.style.backgroundImage = `url(${window.tempLeaderImage})`;
+            previewDiv.style.backgroundSize = "cover";
+            showToast("Picha imepakiwa, bofya Hifadhi Mabadiliko", "success");
+        };
+        reader.readAsDataURL(file);
     }
-    function renderAll() { renderHomeContent(); renderDonateProducts(); renderAdminVideoList(); renderAdminProductList(); updateStats(); }
-    function escapeHtml(s){ if(!s) return ''; return s.replace(/[&<>]/g, m=> m==='&'?'&amp;': m==='<'?'&lt;': '&gt;'); }
-    function getYouTubeThumb(url) { let match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?#]+)/); return match ? `https://img.youtube.com/vi/${match[1]}/mqdefault.jpg` : ''; }
-    function getLikes(id) { return appData.blogInteractions[id]?.likes || 0; }
-    function addLike(id) { if(!appData.blogInteractions[id]) appData.blogInteractions[id]={likes:0,comments:[]}; appData.blogInteractions[id].likes++; saveData(); showToast("Umependa makala!", "success"); }
-    function getComments(id) { return appData.blogInteractions[id]?.comments || []; }
-    function addComment(id, txt) { if(!txt.trim()) return; if(!appData.blogInteractions[id]) appData.blogInteractions[id]={likes:0,comments:[]}; appData.blogInteractions[id].comments.push({text:txt, date:new Date().toLocaleString()}); saveData(); showToast("Maoni yameongezwa","info"); renderHomeContent(); }
-    function shareBlog(id, title) { let url=encodeURIComponent(window.location.href); let text=encodeURIComponent(`Soma makala: ${title} kutoka Zimrah Arts Network`); window.open(`https://wa.me/?text=${text}%20${url}`,'_blank'); }
-    function renderHomeContent() {
+    function saveContactSettings() {
+        let email = document.getElementById('contactEmail').value.trim();
+        let phone = document.getElementById('contactPhone').value.trim();
+        if(email) appData.contactSettings.email = email;
+        if(phone) appData.contactSettings.phone = phone;
+        saveData();
+        showToast("Mawasiliano yamehifadhiwa", "success");
+    }
+    function updateContactDisplay() {
+        let emailSpan = document.getElementById('contactEmailDisplay');
+        let phoneSpan = document.getElementById('contactPhoneDisplay');
+        if(emailSpan) emailSpan.innerText = appData.contactSettings.email;
+        if(phoneSpan) phoneSpan.innerText = appData.contactSettings.phone;
+        let mailLink = document.querySelector('#contact-tab a[href^="mailto"]');
+        if(mailLink) mailLink.href = `mailto:${appData.contactSettings.email}`;
+    }
+    function applyMarqueeText() { document.getElementById('marqueeText').innerText = "KARIBU ZIMRAH ARTS NETWORK NI HUDUMA YA KIINJILI INAYOTUMIA SANAA KAMA JUKWAA LA PEKEE. KARIBU KWA MCHANGO WA WAKO: 0752 685 000"; }
+    function renderHomeContent() { 
         let vDiv=document.getElementById('homeVideosList'); 
         if(vDiv) vDiv.innerHTML=appData.videos.slice().reverse().map(v=>`<div class="video-item" onclick="openLink('${v.url}')"><div class="video-thumb" style="background-image:url('${getYouTubeThumb(v.url)}'); background-size:cover;"><div class="video-play"><i class="fas fa-play"></i></div></div><div class="video-info"><h4>${escapeHtml(v.title)}</h4><p>${escapeHtml(v.description?.substring(0,80))}</p></div></div>`).join('')||'<div class="empty-state">Hakuna video</div>';
         let bDiv=document.getElementById('homeBlogsList'); 
-        if(bDiv) bDiv.innerHTML=appData.blogs.filter(b=>b.status==='published').reverse().map(b=>{ let likes=getLikes(b.id); let comments=getComments(b.id); return `<div class="blog-card"><div class="video-thumb" style="background:linear-gradient(135deg,#d69e2e,#b8860b);height:120px;"><div class="video-play"><i class="fas fa-book-open"></i></div></div><div class="blog-content-info"><h4>${escapeHtml(b.title)}</h4><p>${escapeHtml(b.content.replace(/<[^>]*>/g,'').substring(0,120))}...</p><div class="interactions"><button onclick="addLike(${b.id})"><i class="fas fa-heart"></i> ${likes} Penda</button><button onclick="shareBlog(${b.id},'${escapeHtml(b.title)}')"><i class="fas fa-share-alt"></i> Shiriki</button></div><div class="comment-box"><input type="text" id="commentInput_${b.id}" placeholder="Andika maoni..."><button class="btn-sm" onclick="addComment(${b.id}, document.getElementById('commentInput_${b.id}').value); document.getElementById('commentInput_${b.id}').value=''">Tuma</button></div><div class="comment-list">${comments.map(c=>`<div class="comment-item"><i class="fas fa-user"></i> ${escapeHtml(c.text)}<br><small>${c.date}</small></div>`).join('')}</div></div></div>`; }).join('')||'<div class="empty-state">Hakuna makala</div>';
+        if(bDiv) bDiv.innerHTML=appData.blogs.filter(b=>b.status==='published').reverse().map(b=>{ let likes=appData.blogInteractions[b.id]?.likes||0; let comments=appData.blogInteractions[b.id]?.comments||[]; return `<div class="blog-card"><div class="video-thumb" style="background:linear-gradient(135deg,#d69e2e,#b8860b);height:120px;"><div class="video-play"><i class="fas fa-book-open"></i></div></div><div class="blog-content-info"><h4>${escapeHtml(b.title)}</h4><p>${escapeHtml(b.content.replace(/<[^>]*>/g,'').substring(0,120))}...</p><div class="interactions"><button onclick="addLike(${b.id})"><i class="fas fa-heart"></i> ${likes} Penda</button><button onclick="shareBlog(${b.id},'${escapeHtml(b.title)}')"><i class="fas fa-share-alt"></i> Shiriki</button></div><div class="comment-box"><input type="text" id="commentInput_${b.id}" placeholder="Andika maoni..."><button class="btn-sm" onclick="addComment(${b.id}, document.getElementById('commentInput_${b.id}').value); document.getElementById('commentInput_${b.id}').value=''">Tuma</button></div><div class="comment-list">${comments.map(c=>`<div class="comment-item"><i class="fas fa-user"></i> ${escapeHtml(c.text)}<br><small>${c.date}</small></div>`).join('')}</div></div></div>`; }).join('')||'<div class="empty-state">Hakuna makala</div>';
         let pDiv=document.getElementById('homeProductsList'); 
         if(pDiv) pDiv.innerHTML=appData.products.map(p=>`<div class="product-card" onclick="buyProduct('${escapeHtml(p.name)}',${p.price})"><div class="product-icon"><i class="fas fa-box-open"></i></div><h4>${escapeHtml(p.name)}</h4><div class="product-price">TSh ${p.price.toLocaleString()}</div></div>`).join('')||'<div class="empty-state">Hakuna bidhaa</div>';
     }
-    function renderDonateProducts() { 
-        let dp=document.getElementById('donateProductList'); 
-        if(dp) dp.innerHTML=appData.products.map(p=>`<div class="product-card" onclick="buyProduct('${escapeHtml(p.name)}',${p.price})"><div class="product-icon"><i class="fas fa-tag"></i></div><h4>${escapeHtml(p.name)}</h4><div class="product-price">TSh ${p.price.toLocaleString()}</div></div>`).join('')||'<div class="empty-state">Hakuna bidhaa</div>'; 
-    }
-    function renderAdminVideoList() { 
-        let listDiv=document.getElementById('adminVideoList'); 
-        if(listDiv) listDiv.innerHTML=appData.videos.map(v=>`<div class="admin-list-item"><div><strong>${escapeHtml(v.title)}</strong><br><small>${v.url}</small></div><div><button class="btn btn-sm btn-info" onclick="editVideo(${v.id})"><i class="fas fa-edit"></i> Hariri</button><button class="btn btn-sm btn-danger" onclick="deleteVideo(${v.id})"><i class="fas fa-trash"></i> Futa</button></div></div>`).join('')||'<div class="empty-state">Hakuna video</div>'; 
-    }
-    function renderAdminProductList() {
-        let listDiv = document.getElementById('adminProductList');
-        if(listDiv) listDiv.innerHTML = appData.products.map(p=>`<div class="admin-list-item"><div><strong>${escapeHtml(p.name)}</strong><br>TSh ${p.price}</div><div><button class="btn btn-sm btn-danger" onclick="deleteProduct(${p.id})"><i class="fas fa-trash"></i> Futa</button></div></div>`).join('') || '<div class="empty-state">Hakuna bidhaa</div>';
-    }
-    function deleteProduct(id) {
-        if(confirm("Futa bidhaa hii?")) {
-            appData.products = appData.products.filter(p => p.id !== id);
-            saveData();
-            showToast("Bidhaa imefutwa", "success");
-        }
-    }
+    function renderDonateProducts() { let dp=document.getElementById('donateProductList'); if(dp) dp.innerHTML=appData.products.map(p=>`<div class="product-card" onclick="buyProduct('${escapeHtml(p.name)}',${p.price})"><div class="product-icon"><i class="fas fa-tag"></i></div><h4>${escapeHtml(p.name)}</h4><div class="product-price">TSh ${p.price.toLocaleString()}</div></div>`).join('')||'<div class="empty-state">Hakuna bidhaa</div>'; }
+    function renderAdminVideoList() { let listDiv=document.getElementById('adminVideoList'); if(listDiv) listDiv.innerHTML=appData.videos.map(v=>`<div class="admin-list-item"><div><strong>${escapeHtml(v.title)}</strong><br><small>${v.url}</small></div><div><button class="btn btn-sm btn-info" onclick="editVideo(${v.id})"><i class="fas fa-edit"></i> Hariri</button><button class="btn btn-sm btn-danger" onclick="deleteVideo(${v.id})"><i class="fas fa-trash"></i> Futa</button></div></div>`).join('')||'<div class="empty-state">Hakuna video</div>'; }
+    function renderAdminProductList() { let listDiv=document.getElementById('adminProductList'); if(listDiv) listDiv.innerHTML=appData.products.map(p=>`<div class="admin-list-item"><div><strong>${escapeHtml(p.name)}</strong><br>TSh ${p.price}</div><div><button class="btn btn-sm btn-danger" onclick="deleteProduct(${p.id})"><i class="fas fa-trash"></i> Futa</button></div></div>`).join('')||'<div class="empty-state">Hakuna bidhaa</div>'; }
+    function deleteProduct(id) { if(confirm("Futa bidhaa hii?")) { appData.products = appData.products.filter(p => p.id !== id); saveData(); showToast("Bidhaa imefutwa", "success"); } }
     function editVideo(id) { let v=appData.videos.find(v=>v.id==id); if(v){ document.getElementById('videoTitle').value=v.title; document.getElementById('videoDescription').value=v.description; document.getElementById('videoUrl').value=v.url; deleteVideo(id); showToast("Sasa hariri na uhifadhi","info"); } }
     function deleteVideo(id) { if(confirm("Futa video?")){ appData.videos=appData.videos.filter(v=>v.id!==id); saveData(); showToast("Video imefutwa","success"); } }
     function updateLivePreview() { let preview=document.getElementById('liveBlogPreview'); if(preview) preview.innerHTML=document.getElementById('blogContent').innerHTML; }
@@ -318,246 +280,65 @@
         if(tabName==='admin') checkAdminUI(); 
         if(tabName==='home') renderHomeContent(); 
         if(tabName==='donate') renderDonateProducts(); 
+        if(tabName==='contact') updateContactDisplay();
     }
     function checkAdminUI() { 
-        const isAdmin = sessionStorage.getItem('admin_logged') === 'yes';
-        const changeProfileBtn = document.getElementById('changeProfileBtn');
-        if(changeProfileBtn) changeProfileBtn.style.display = isAdmin ? 'block' : 'none';
-        if(isAdmin) { 
+        if(sessionStorage.getItem('admin_logged')==='yes') { 
             document.getElementById('adminLoginPrompt').classList.add('hidden'); 
             document.getElementById('adminDashboard').classList.remove('hidden'); 
             renderAdminVideoList(); renderAdminProductList(); updateStats(); 
+            if(appData.leadership){ document.getElementById('leaderName').value=appData.leadership.name; document.getElementById('leaderRole').value=appData.leadership.role; document.getElementById('leaderPrayer').value=appData.leadership.prayerRequest; if(appData.leadership.image) document.getElementById('leaderImagePreview').style.backgroundImage=`url(${appData.leadership.image})`;}
+            document.getElementById('contactEmail').value=appData.contactSettings.email; document.getElementById('contactPhone').value=appData.contactSettings.phone;
         } else { 
             document.getElementById('adminLoginPrompt').classList.remove('hidden'); 
             document.getElementById('adminDashboard').classList.add('hidden'); 
         } 
     }
-    function openLink(u){ window.open(u,'_blank'); }
+    function showAdminSection(sec){ 
+        document.getElementById('uploadVideoSection').classList.add('hidden'); 
+        document.getElementById('writeBlogSection').classList.add('hidden'); 
+        document.getElementById('addProductSection').classList.add('hidden');
+        document.getElementById('leadershipSection').classList.add('hidden');
+        document.getElementById('contactSettingsSection').classList.add('hidden');
+        if(sec==='uploadVideo') document.getElementById('uploadVideoSection').classList.remove('hidden');
+        if(sec==='writeBlog') { document.getElementById('writeBlogSection').classList.remove('hidden'); updateLivePreview(); }
+        if(sec==='addProduct') document.getElementById('addProductSection').classList.remove('hidden');
+        if(sec==='leadership') document.getElementById('leadershipSection').classList.remove('hidden');
+        if(sec==='contactSettings') document.getElementById('contactSettingsSection').classList.remove('hidden');
+    }
+    function saveVideo(){ let t=document.getElementById('videoTitle').value.trim(); let d=document.getElementById('videoDescription').value.trim(); let u=document.getElementById('videoUrl').value.trim(); if(!t||!u) return showToast("Kichwa na URL vinahitajika","error"); if(!u.match(/youtube\.com|youtu\.be/)) return showToast("Ingiza URL halali ya YouTube","error"); appData.videos.unshift({id:Date.now(),title:t,description:d,url:u,date:new Date().toLocaleDateString()}); saveData(); showToast("Video imeongezwa","success"); document.getElementById('videoTitle').value=''; document.getElementById('videoDescription').value=''; document.getElementById('videoUrl').value=''; renderAdminVideoList(); }
+    function publishBlog(){ let t=document.getElementById('blogTitle').value.trim(); let c=document.getElementById('blogContent').innerHTML; if(!t||c.length<10) return showToast("Andika kichwa na maudhui","error"); appData.blogs.unshift({id:Date.now(),title:t,content:c,tags:document.getElementById('blogTags').value.split(','),date:new Date().toLocaleDateString(),status:'published'}); if(!appData.blogInteractions[Date.now()]) appData.blogInteractions[Date.now()]={likes:0,comments:[]}; saveData(); showToast("Makala imechapishwa","success"); document.getElementById('blogTitle').value=''; document.getElementById('blogContent').innerHTML='<p>Makala mpya...</p>'; document.getElementById('blogTags').value=''; updateLivePreview(); }
+    function saveBlogDraft(){ let t=document.getElementById('blogTitle').value.trim(); if(!t) return showToast("Kichwa kinahitajika","error"); appData.blogs.push({id:Date.now(),title:t,content:document.getElementById('blogContent').innerHTML,tags:[],date:new Date().toLocaleDateString(),status:'draft'}); saveData(); showToast("Rasimu imehifadhiwa","success"); }
+    function saveProduct(){ let n=document.getElementById('productName').value.trim(); let p=parseInt(document.getElementById('productPrice').value); if(!n||p<=0) return showToast("Jina na bei sahihi","error"); if(appData.products.some(prod => prod.name.toLowerCase() === n.toLowerCase())) { return showToast("Bidhaa hii tayari ipo!", "error"); } appData.products.unshift({id:Date.now(),name:n,price:p,description:document.getElementById('productDescription').value.trim()||"Bidhaa bora",date:new Date().toLocaleDateString()}); saveData(); showToast(`Bidhaa "${n}" imeongezwa`,"success"); document.getElementById('productName').value=''; document.getElementById('productPrice').value=''; document.getElementById('productDescription').value=''; renderAdminProductList(); }
+    function addDefaultProducts() { if(defaultProductsSeeded) return; let existingNames = appData.products.map(p=>p.name); if(!existingNames.includes("T-Shirt & Kofia")) appData.products.push({id:Date.now()+1, name:"T-Shirt & Kofia", price:15000, description:"T-shirt na kofia za Zimrah", date:new Date().toLocaleDateString()}); if(!existingNames.includes("Flash USB")) appData.products.push({id:Date.now()+2, name:"Flash USB (16GB)", price:12000, description:"Nyimbo na video za injili", date:new Date().toLocaleDateString()}); if(!existingNames.includes("Books")) appData.products.push({id:Date.now()+3, name:"Vitabu vya Kiroho", price:8000, description:"Vitabu vya mafundisho", date:new Date().toLocaleDateString()}); defaultProductsSeeded = true; localStorage.setItem('zimrah_default_products_seeded', 'true'); saveData(); }
     function callNumber(n){ if(confirm(`Piga ${n}?`)) window.open(`tel:${n}`); }
     function buyProduct(n,p){ if(confirm(`Nunua ${n} TSh ${p}?`)) window.open(`https://wa.me/255752685000?text=${encodeURIComponent("Nataka kununua "+n+" bei "+p)}`,'_blank'); }
-    function openWhatsAppLeader() { 
-        window.open(`https://wa.me/255752685000?text=${encodeURIComponent("Habari, nimekutana na Zimrah Arts Network. Ningependa kuwasiliana nawe.")}`, '_blank'); 
-    }
+    function openWhatsAppLeader() { window.open(`https://wa.me/255752685000?text=${encodeURIComponent("Habari, nimekutana na Zimrah Arts Network. Ningependa kuwasiliana nawe.")}`, '_blank'); }
     function setupAdminTrigger(){ let t=0,l=0; document.getElementById('hiddenAdminTrigger').addEventListener('click',()=>{ let n=Date.now(); if(n-l>1000) t=0; t++; l=n; if(t>=3) showAdminLogin(); }); }
     function showAdminLogin(){ document.getElementById('adminModal').style.display='flex'; document.getElementById('adminPassword').focus(); }
     function hideAdminLogin(){ document.getElementById('adminModal').style.display='none'; }
     function loginAdmin(){ let pwd=document.getElementById('adminPassword').value; if(btoa(pwd)===ADMIN_PASSWORD_HASH){ sessionStorage.setItem('admin_logged','yes'); hideAdminLogin(); checkAdminUI(); showToast("Umeingia Admin Panel","success"); } else showToast("Password si sahihi","error"); }
     function logoutAdmin(){ if(confirm("Toka Admin?")){ sessionStorage.removeItem('admin_logged'); checkAdminUI(); showToast("Umetoka","info"); } }
-    function showAdminSection(sec){ 
-        document.getElementById('uploadVideoSection').classList.add('hidden'); 
-        document.getElementById('writeBlogSection').classList.add('hidden'); 
-        document.getElementById('addProductSection').classList.add('hidden'); 
-        if(sec==='uploadVideo') document.getElementById('uploadVideoSection').classList.remove('hidden');
-        if(sec==='writeBlog') { document.getElementById('writeBlogSection').classList.remove('hidden'); updateLivePreview(); }
-        if(sec==='addProduct') { document.getElementById('addProductSection').classList.remove('hidden'); renderAdminProductList(); }
-    }
-    function saveVideo(){ 
-        let t=document.getElementById('videoTitle').value.trim(); 
-        let d=document.getElementById('videoDescription').value.trim(); 
-        let u=document.getElementById('videoUrl').value.trim(); 
-        if(!t||!u) return showToast("Kichwa na URL vinahitajika","error"); 
-        if(!u.match(/youtube\.com|youtu\.be/)) return showToast("Ingiza URL halali ya YouTube","error"); 
-        appData.videos.unshift({id:Date.now(),title:t,description:d,url:u,date:new Date().toLocaleDateString()}); 
-        saveData(); 
-        showToast("Video imeongezwa","success"); 
-        document.getElementById('videoTitle').value=''; 
-        document.getElementById('videoDescription').value=''; 
-        document.getElementById('videoUrl').value=''; 
-        renderAdminVideoList(); 
-    }
-    function publishBlog(){ 
-        let t=document.getElementById('blogTitle').value.trim(); 
-        let c=document.getElementById('blogContent').innerHTML; 
-        if(!t||c.length<10) return showToast("Andika kichwa na maudhui","error"); 
-        appData.blogs.unshift({id:Date.now(),title:t,content:c,tags:document.getElementById('blogTags').value.split(','),date:new Date().toLocaleDateString(),status:'published'}); 
-        if(!appData.blogInteractions[Date.now()]) appData.blogInteractions[Date.now()]={likes:0,comments:[]}; 
-        saveData(); 
-        showToast("Makala imechapishwa","success"); 
-        document.getElementById('blogTitle').value=''; 
-        document.getElementById('blogContent').innerHTML='<p>Makala mpya...</p>'; 
-        document.getElementById('blogTags').value=''; 
-        updateLivePreview(); 
-    }
-    function saveBlogDraft(){ 
-        let t=document.getElementById('blogTitle').value.trim(); 
-        if(!t) return showToast("Kichwa kinahitajika","error"); 
-        appData.blogs.push({id:Date.now(),title:t,content:document.getElementById('blogContent').innerHTML,tags:[],date:new Date().toLocaleDateString(),status:'draft'}); 
-        saveData(); 
-        showToast("Rasimu imehifadhiwa","success"); 
-    }
-    function saveProduct(){ 
-        let n=document.getElementById('productName').value.trim(); 
-        let p=parseInt(document.getElementById('productPrice').value); 
-        if(!n||p<=0) return showToast("Jina na bei sahihi","error"); 
-        if(appData.products.some(prod => prod.name.toLowerCase() === n.toLowerCase())) {
-            return showToast("Bidhaa hii tayari ipo!", "error");
-        }
-        appData.products.unshift({id:Date.now(),name:n,price:p,description:document.getElementById('productDescription').value.trim()||"Bidhaa bora",date:new Date().toLocaleDateString()}); 
-        saveData(); 
-        showToast(`Bidhaa "${n}" imeongezwa`,"success"); 
-        document.getElementById('productName').value=''; 
-        document.getElementById('productPrice').value=''; 
-        document.getElementById('productDescription').value=''; 
-        renderAdminProductList();
-    }
-    function recordDonation(){ 
-        let name=prompt("Jina la mchangiaji:"); 
-        if(!name) return; 
-        let amt=parseFloat(prompt("Kiasi (TSh):")); 
-        if(isNaN(amt)||amt<=0) return; 
-        appData.donations.push({id:Date.now(),name,amount:amt,date:new Date().toLocaleDateString()}); 
-        saveData(); 
-        showToast(`Mchango wa TSh ${amt} umerekodiwa`,"success"); 
-    }
-    function clearAllData(){ 
-        if(confirm("Futa data zote?")){ 
-            localStorage.removeItem('zimrah_mobile_data'); 
-            localStorage.removeItem('zimrah_default_products_seeded');
-            appData={videos:[],blogs:[],products:[],donations:[],blogInteractions:{}};
-            defaultProductsSeeded = false;
-            addDefaultProducts();
-            saveData(); 
-            showToast("Data zimefutwa na bidhaa default zimewekwa upya","info"); 
-        } 
-    }
-    function backupData(){ 
-        let a=document.createElement('a'); 
-        a.href=URL.createObjectURL(new Blob([JSON.stringify(appData,null,2)],{type:"application/json"})); 
-        a.download=`zimrah-backup-${Date.now()}.json`; 
-        a.click(); 
-        showToast("Backup imepakuliwa","success"); 
-    }
-    function importData(){ 
-        let inp=document.createElement('input'); 
-        inp.type='file'; 
-        inp.accept='application/json'; 
-        inp.onchange=e=>{ 
-            let file=e.target.files[0]; 
-            let reader=new FileReader(); 
-            reader.onload=ev=>{ 
-                try{ 
-                    let data=JSON.parse(ev.target.result); 
-                    if(data.videos&&data.blogs&&data.products) { 
-                        appData=data; 
-                        if(!appData.blogInteractions) appData.blogInteractions={}; 
-                        saveData(); 
-                        showToast("Data imeingizwa","success"); 
-                    } else showToast("Faili si sahihi","error"); 
-                }catch(e){ showToast("Faili batili","error"); } 
-            }; 
-            reader.readAsText(file); 
-        }; 
-        inp.click(); 
-    }
-    function sendNotification(){ 
-        let msg=prompt("Ujumbe wa arifa:"); 
-        if(msg) showToast(msg,"info"); 
-    }
-    function formatText(cmd){ 
-        document.getElementById('blogContent').focus(); 
-        document.execCommand(cmd,false,null); 
-        updateLivePreview(); 
-    }
-    function insertImage(){ 
-        let url=prompt("URL ya picha:"); 
-        if(url){ 
-            document.execCommand('insertImage',false,url); 
-            updateLivePreview(); 
-        } 
-    }
-    function updateStats(){ 
-        let statsHtml=`<div class="stat-card"><i class="fab fa-youtube fa-2x"></i><div class="stat-number">${appData.videos.length}</div><div>Video</div></div><div class="stat-card"><i class="fas fa-blog fa-2x"></i><div class="stat-number">${appData.blogs.filter(b=>b.status==='published').length}</div><div>Makala</div></div><div class="stat-card"><i class="fas fa-donate fa-2x"></i><div class="stat-number">${appData.donations.length}</div><div>Michango</div></div><div class="stat-card"><i class="fas fa-box fa-2x"></i><div class="stat-number">${appData.products.length}</div><div>Bidhaa</div></div>`; 
-        document.getElementById('statsGrid').innerHTML=statsHtml; 
-    }
-    function showToast(msg,type){ 
-        let toast=document.createElement('div'); 
-        toast.className='toast'; 
-        toast.innerHTML=`<i class="fas fa-${type==='success'?'check-circle':type==='error'?'exclamation-circle':'info-circle'}"></i> ${msg}`; 
-        document.body.appendChild(toast); 
-        setTimeout(()=>toast.remove(),3000); 
-    }
-    function toggleDarkMode(){ 
-        document.body.classList.toggle('dark'); 
-        localStorage.setItem('zimrah_dark',document.body.classList.contains('dark')); 
-    }
-    function addDefaultProducts() { 
-        if(defaultProductsSeeded) return;
-        let existingNames = appData.products.map(p=>p.name.toLowerCase());
-        if(!existingNames.includes("t-shirt & kofia")) 
-            appData.products.push({id:Date.now()+1, name:"T-Shirt & Kofia", price:15000, description:"T-shirt na kofia za Zimrah", date:new Date().toLocaleDateString()});
-        if(!existingNames.includes("flash usb (16gb)")) 
-            appData.products.push({id:Date.now()+2, name:"Flash USB (16GB)", price:12000, description:"Nyimbo na video za injili", date:new Date().toLocaleDateString()});
-        if(!existingNames.includes("vitabu vya kiroho")) 
-            appData.products.push({id:Date.now()+3, name:"Vitabu vya Kiroho", price:8000, description:"Vitabu vya mafundisho", date:new Date().toLocaleDateString()});
-        defaultProductsSeeded = true;
-        localStorage.setItem('zimrah_default_products_seeded', 'true');
-        saveData(); 
-    }
-    // Upload functions for logo and profile image
-    function uploadSiteLogo() {
-        let input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'image/*';
-        input.onchange = (e) => {
-            let file = e.target.files[0];
-            if(file) {
-                let reader = new FileReader();
-                reader.onload = (ev) => {
-                    let imgData = ev.target.result;
-                    localStorage.setItem('zimrah_site_logo', imgData);
-                    applyLogo(imgData);
-                    showToast("Logo ya Huduma imebadilishwa!", "success");
-                };
-                reader.readAsDataURL(file);
-            }
-        };
-        input.click();
-    }
-    function uploadProfileImage() {
-        let input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'image/*';
-        input.onchange = (e) => {
-            let file = e.target.files[0];
-            if(file) {
-                let reader = new FileReader();
-                reader.onload = (ev) => {
-                    let imgData = ev.target.result;
-                    localStorage.setItem('zimrah_profile_img', imgData);
-                    applyProfileImage(imgData);
-                    showToast("Picha ya wasifu imebadilishwa!", "success");
-                };
-                reader.readAsDataURL(file);
-            }
-        };
-        input.click();
-    }
-    function applyLogo(dataUrl) {
-        let logoDiv = document.getElementById('logoIcon');
-        if(logoDiv) logoDiv.innerHTML = `<img src="${dataUrl}" alt="Logo" style="width:100%; height:100%; object-fit:cover;">`;
-    }
-    function applyProfileImage(dataUrl) {
-        let profileImg = document.getElementById('profileImg');
-        if(profileImg) profileImg.src = dataUrl;
-    }
-    function loadSavedImages() {
-        let savedLogo = localStorage.getItem('zimrah_site_logo');
-        if(savedLogo) applyLogo(savedLogo);
-        let savedProfile = localStorage.getItem('zimrah_profile_img');
-        if(savedProfile) applyProfileImage(savedProfile);
-    }
-    document.addEventListener('DOMContentLoaded',()=>{ 
-        loadData(); 
-        addDefaultProducts(); 
-        saveData(); 
-        checkAdminUI(); 
-        setupAdminTrigger(); 
-        setInterval(()=>saveData(),30000); 
-        document.getElementById('blogContent')?.addEventListener('input',updateLivePreview); 
-        renderAll(); 
-        if(localStorage.getItem('zimrah_dark')==='true') document.body.classList.add('dark');
-        loadSavedImages();
-    });
+    function sendNotification(){ let msg=prompt("Ujumbe wa arifa:"); if(msg) showToast(msg,"info"); }
+    function backupData(){ let a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(appData,null,2)],{type:"application/json"})); a.download=`zimrah-backup-${Date.now()}.json`; a.click(); showToast("Backup imepakuliwa","success"); }
+    function importData(){ let inp=document.createElement('input'); inp.type='file'; inp.accept='application/json'; inp.onchange=e=>{ let file=e.target.files[0]; let reader=new FileReader(); reader.onload=ev=>{ try{ let data=JSON.parse(ev.target.result); if(data.videos&&data.blogs&&data.products) { appData=data; if(!appData.blogInteractions) appData.blogInteractions={}; if(!appData.leadership) appData.leadership = { name: "Frank Ronginus Kawonga", role: "Mwanzilishi & Mkurugenzi", prayerRequest: "Tumtatie Mungu", image:null}; if(!appData.contactSettings) appData.contactSettings = { email:"zimraharts@gmail.com", phone:"0752685000"}; saveData(); showToast("Data imeingizwa","success"); } else showToast("Faili si sahihi","error"); }catch(e){ showToast("Faili batili","error"); } }; reader.readAsText(file); }; inp.click(); }
+    function clearAllData(){ if(confirm("Futa data zote?")){ localStorage.removeItem('zimrah_mobile_data'); localStorage.removeItem('zimrah_default_products_seeded'); appData={videos:[],blogs:[],products:[],donations:[],blogInteractions:{}, leadership:{ name:"Frank Ronginus Kawonga", role:"Mwanzilishi & Mkurugenzi", prayerRequest:"Tumtatie Mungu kwa ajili ya huduma", image:null}, contactSettings:{email:"zimraharts@gmail.com", phone:"0752685000"}}; defaultProductsSeeded = false; addDefaultProducts(); saveData(); showToast("Data zimefutwa na bidhaa default zimewekwa upya","info"); } }
+    function formatText(cmd){ document.getElementById('blogContent').focus(); document.execCommand(cmd,false,null); updateLivePreview(); }
+    function insertImage(){ let url=prompt("URL ya picha:"); if(url){ document.execCommand('insertImage',false,url); updateLivePreview(); } }
+    function updateStats(){ let statsHtml=`<div class="stat-card"><i class="fab fa-youtube fa-2x"></i><div class="stat-number">${appData.videos.length}</div><div>Video</div></div><div class="stat-card"><i class="fas fa-blog fa-2x"></i><div class="stat-number">${appData.blogs.filter(b=>b.status==='published').length}</div><div>Makala</div></div><div class="stat-card"><i class="fas fa-donate fa-2x"></i><div class="stat-number">${appData.donations.length}</div><div>Michango</div></div><div class="stat-card"><i class="fas fa-box fa-2x"></i><div class="stat-number">${appData.products.length}</div><div>Bidhaa</div></div>`; document.getElementById('statsGrid').innerHTML=statsHtml; }
+    function showToast(msg,type){ let toast=document.createElement('div'); toast.className='toast'; toast.innerHTML=`<i class="fas fa-${type==='success'?'check-circle':type==='error'?'exclamation-circle':'info-circle'}"></i> ${msg}`; document.body.appendChild(toast); setTimeout(()=>toast.remove(),3000); }
+    function toggleDarkMode(){ document.body.classList.toggle('dark'); localStorage.setItem('zimrah_dark',document.body.classList.contains('dark')); }
+    function uploadSiteLogo() { let input = document.createElement('input'); input.type = 'file'; input.accept = 'image/*'; input.onchange = (e) => { let file = e.target.files[0]; if(file) { let reader = new FileReader(); reader.onload = (ev) => { let imgData = ev.target.result; localStorage.setItem('zimrah_site_logo', imgData); applyLogo(imgData); showToast("Logo ya Huduma imebadilishwa!", "success"); }; reader.readAsDataURL(file); } }; input.click(); }
+    function applyLogo(dataUrl) { let logoDiv = document.getElementById('logoIcon'); if(logoDiv) logoDiv.innerHTML = `<img src="${dataUrl}" alt="Logo">`; }
+    function loadSavedImages() { let savedLogo = localStorage.getItem('zimrah_site_logo'); if(savedLogo) applyLogo(savedLogo); }
+    function addLike(id) { if(!appData.blogInteractions[id]) appData.blogInteractions[id]={likes:0,comments:[]}; appData.blogInteractions[id].likes++; saveData(); showToast("Umependa makala!", "success"); }
+    function addComment(id, txt) { if(!txt.trim()) return; if(!appData.blogInteractions[id]) appData.blogInteractions[id]={likes:0,comments:[]}; appData.blogInteractions[id].comments.push({text:txt, date:new Date().toLocaleString()}); saveData(); showToast("Maoni yameongezwa","info"); renderHomeContent(); }
+    function shareBlog(id, title) { let url=encodeURIComponent(window.location.href); let text=encodeURIComponent(`Soma makala: ${title} kutoka Zimrah Arts Network`); window.open(`https://wa.me/?text=${text}%20${url}`,'_blank'); }
+    function openLink(u){ window.open(u,'_blank'); }
+    function recordDonation(){ let name=prompt("Jina la mchangiaji:"); if(!name) return; let amt=parseFloat(prompt("Kiasi (TSh):")); if(isNaN(amt)||amt<=0) return; appData.donations.push({id:Date.now(),name,amount:amt,date:new Date().toLocaleDateString()}); saveData(); showToast(`Mchango wa TSh ${amt} umerekodiwa`,"success"); }
+    function escapeHtml(s){ if(!s) return ''; return s.replace(/[&<>]/g, m=> m==='&'?'&amp;': m==='<'?'&lt;': '&gt;'); }
+    function getYouTubeThumb(url) { let match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?#]+)/); return match ? `https://img.youtube.com/vi/${match[1]}/mqdefault.jpg` : ''; }
+    document.addEventListener('DOMContentLoaded',()=>{ loadData(); addDefaultProducts(); saveData(); checkAdminUI(); setupAdminTrigger(); setInterval(()=>saveData(),30000); document.getElementById('blogContent')?.addEventListener('input',updateLivePreview); renderAll(); if(localStorage.getItem('zimrah_dark')==='true') document.body.classList.add('dark'); loadSavedImages(); updateContactDisplay(); });
     document.getElementById('adminModal')?.addEventListener('click',e=>{ if(e.target===document.getElementById('adminModal')) hideAdminLogin(); });
 </script>
 </body>
